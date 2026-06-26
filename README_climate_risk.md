@@ -9,7 +9,9 @@ The original OnSSET workflow is extended in two places:
 **onsset/onsset.py** has been modified to accept settlement-level risk-factor columns and include them in the LCOE calculation.
 The scenario notebook has been modified to merge risk-factor inputs, run risk and no-risk scenarios, and compare resulting technology choices and LCOE values.
 
-The risk factors are applied as capital-cost-equivalent penalties, but they are not added directly to the reported upfront investment cost. Instead, the risk cost is annualised and added to the annual cost stream used to calculate LCOE. This means the risk adjustment affects technology choice through the LCOE calculation while keeping the standard investment-cost outputs interpretable as conventional technology investment.
+The risk factors are treated as cost-equivalent adjustments to the LCOE calculation. They are not added directly to the reported upfront investment-cost outputs. Instead, the model calculates a risk-cost equivalent from the relevant exposed asset cost, annualises this value over the risk annuity period, and adds it to the annual cost stream used to calculate LCOE.
+
+This means that climate-risk exposure can make a technology less competitive in the least-cost comparison, while the standard investment-cost outputs continue to represent conventional technology investment rather than investment plus risk cost.
 
 ## Risk-factor columns
 
